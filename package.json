@@ -4,7 +4,7 @@
   "description": "Technical Test for Mid-Level Node.js Backend Developers",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon index.js",
+    "server": "nodemon index.js",
     "test": "set DESTROY_SOCKETS=true && jest --no-cache --runInBand --passWithNoTests --forceExit --testPathPattern=..."
   },
   "author": "",
