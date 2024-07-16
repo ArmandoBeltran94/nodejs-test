@@ -1,9 +1,10 @@
 const express = require('express')
 const api = express();
 const axios = require('axios');
+const { validateWeather } = require('../validator/api')
 
 ///weather route
-api.get("/weather", async (req, res) => {
+api.get("/weather", validateWeather, async (req, res) => {
     // Get the city from the query parameters
     const city = req.query.city;
     const apiKey = "a64085b80b93bf7eab65e7c45e01ab4d"; 
