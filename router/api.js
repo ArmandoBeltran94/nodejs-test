@@ -6,6 +6,11 @@ const { validateWeather } = require('../validator/api')
 ///weather route
 api.get("/weather", validateWeather, async (req, res) => {
     // Get the city from the query parameters
+    console.log('object :>> ', req.query.city);
+    if (!req.query.city) {
+      console.log('entro if');
+      return res.status(400).json({ error: "City is required" });
+    }
     const city = req.query.city;
     const apiKey = "a64085b80b93bf7eab65e7c45e01ab4d"; 
     const APIUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
