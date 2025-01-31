@@ -6,19 +6,19 @@ const { validateCreate, validateUserSearch } = require('../validator/user')
 
 router.use(express.json());
 
-router.get('/health', (req, res) =>{
+router.get('/health', (req, res) => {
     try {
-        const date = new Date()
+        const date = new Date();
         const statusService = {
-                    "status": "OK",
-                    "timestamp": date
-                    }
-        res.send(statusService)
+            "status": "OK",
+            "timestamp": date
+        };
+        res.send(statusService);
     } catch (error) {
         console.error(error);
-        res.status(500).send(error)
+        res.status(500).send(error);
     }
-})
+});
 // generate new user
 router.post('/users', validateCreate, async (req, res) =>{
 

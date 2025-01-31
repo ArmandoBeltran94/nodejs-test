@@ -19,8 +19,8 @@ app.use('/api/', api)
 
 swaggerDocs(app, port)
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 
-module.exports = app
+module.exports = { app, server }

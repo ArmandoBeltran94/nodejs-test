@@ -6,9 +6,8 @@ const { validateWeather } = require('../validator/api')
 ///weather route
 api.get("/weather", validateWeather, async (req, res) => {
     // Get the city from the query parameters
-    console.log('object :>> ', req.query.city);
-    if (!req.query.city) {
-      console.log('entro if');
+    if (req.query.city === "") {
+      console.log('entro al if ');
       return res.status(400).json({ error: "City is required" });
     }
     const city = req.query.city;
